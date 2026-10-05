@@ -2,6 +2,8 @@
 
 Game 2D platformer action vertical side-scroll untuk PC, dibuat dengan **Godot 4.7** oleh **KODIGA Std** (Teknik Informatika ITERA).
 
+**Lompat ke:** [📄 Dokumen Game (SKPL)](#sinopsis) · [🔧 Panduan Git & GitHub](#panduan-git--github-untuk-tim)
+
 ## Sinopsis
 
 Tahun galaxy 1596, planet ke-8 **Headlanger** mulai menginvasi seluruh planet di tata surya Kodiga. Tahun 1940, giliran planet **Santara** yang jatuh. Para pejuangnya diasingkan ke planet Bimu, dan sebagian dilempar ke dalam laut.
