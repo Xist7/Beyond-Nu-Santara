@@ -72,13 +72,13 @@ radius = 19.0
 [node name="Boss1" type="CharacterBody2D" unique_id=802908403]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1760959761]
-position = Vector2(107.00001, 25)
-scale = Vector2(1.2111111, 1.234375)
+position = Vector2(107.00001, 28.75)
+scale = Vector2(1.2111111, 1.1171875)
 sprite_frames = SubResource("SpriteFrames_k56px")
 animation = &"Idle"
 autoplay = "Idle"
 frame_progress = 0.729979
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1880775619]
-position = Vector2(106, 46)
+position = Vector2(106, 45)
 shape = SubResource("CircleShape2D_vkdpk")
