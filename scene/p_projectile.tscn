@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://c542ncra2avmk"]
+
+[ext_resource type="Script" uid="uid://buluenjuqsuka" path="res://script/p_projectile.gd" id="1_0r6x4"]
+[ext_resource type="Texture2D" uid="uid://cdm3t8x4flpoj" path="res://asset/sprites/Erana Iasana_assets_FXes_Projectile/0.0001/heavy_turret_prototype.fx.second.projectile/projectile4-1.png" id="1_kk75h"]
+[ext_resource type="Texture2D" uid="uid://cudwboonyodbu" path="res://asset/sprites/Erana Iasana_assets_FXes_Projectile/0.0001/heavy_turret_prototype.fx.second.projectile/projectile4-2.png" id="2_0r6x4"]
+[ext_resource type="Texture2D" uid="uid://7kx5p1vkshf1" path="res://asset/sprites/Erana Iasana_assets_FXes_Projectile/0.0001/heavy_turret_prototype.fx.second.projectile/projectile4-3.png" id="3_qtlpl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wp5od"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kk75h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0r6x4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qtlpl")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wp5od"]
+radius = 5.0990195
+
+[node name="P_Projectile" type="Area2D" unique_id=595669612]
+script = ExtResource("1_0r6x4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=4776185]
+position = Vector2(25, 15)
+sprite_frames = SubResource("SpriteFrames_wp5od")
+frame_progress = 0.10298757
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1153131364]
+position = Vector2(29, 16)
+shape = SubResource("CircleShape2D_wp5od")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1924417272]
+position = Vector2(27, 15)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
