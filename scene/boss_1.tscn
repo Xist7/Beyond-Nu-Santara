@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://c4nsr6bvp0kq0"]
 
 [ext_resource type="Texture2D" uid="uid://bd8u2xo4nrjgn" path="res://asset/sprites/Blue_Golem/Golem_1_idle.png" id="1_7cpyu"]
+[ext_resource type="Script" uid="uid://c0bbvlqjgoaf2" path="res://script/Boss1.gd" id="1_ilt14"]
+[ext_resource type="Texture2D" uid="uid://mifmcpfjsurl" path="res://asset/sprites/HP_Back.png" id="2_yu5gy"]
+[ext_resource type="Texture2D" uid="uid://duobyner18gbp" path="res://asset/sprites/HP_Front.png" id="3_ilt14"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4lne4"]
 atlas = ExtResource("1_7cpyu")
@@ -70,6 +73,7 @@ animations = [{
 radius = 19.0
 
 [node name="Boss1" type="CharacterBody2D" unique_id=802908403]
+script = ExtResource("1_ilt14")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1760959761]
 position = Vector2(107.00001, 28.75)
@@ -82,3 +86,14 @@ frame_progress = 0.729979
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1880775619]
 position = Vector2(106, 45)
 shape = SubResource("CircleShape2D_vkdpk")
+
+[node name="Boss1HP" type="TextureProgressBar" parent="." unique_id=1952307738]
+offset_left = -66.0
+offset_top = -320.0
+offset_right = 269.0
+offset_bottom = 425.0
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0.2, 0.2)
+value = 100.0
+texture_under = ExtResource("2_yu5gy")
+texture_progress = ExtResource("3_ilt14")

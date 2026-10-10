@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://cl77by5raep3j"]
+
+[ext_resource type="Script" uid="uid://cw8lwoadsuw84" path="res://script/Spikes.gd" id="1_0uyoc"]
+[ext_resource type="Texture2D" uid="uid://dl35lk4vq7iun" path="res://asset/sprites/floor spikes/keyframes/small_metal/small_metal_spike_01.png" id="1_dlj5e"]
+[ext_resource type="Texture2D" uid="uid://c4uwsxg5w73fl" path="res://asset/sprites/floor spikes/keyframes/small_metal/small_metal_spike_02.png" id="2_0uyoc"]
+[ext_resource type="Texture2D" uid="uid://75vfnoeer8qq" path="res://asset/sprites/floor spikes/keyframes/small_metal/small_metal_spike_03.png" id="3_ch3xn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k56px"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dlj5e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0uyoc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ch3xn")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6i20d"]
+radius = 3.0
+height = 12.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0uyoc"]
+radius = 6.0
+
+[node name="Spike" type="StaticBody2D" unique_id=743591513]
+script = ExtResource("1_0uyoc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=967208930]
+position = Vector2(8.999999, 10)
+scale = Vector2(0.17948718, 0.27272728)
+sprite_frames = SubResource("SpriteFrames_k56px")
+autoplay = "default"
+frame_progress = 0.44562617
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=214464564]
+position = Vector2(9, 12)
+shape = SubResource("CapsuleShape2D_6i20d")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1510347860]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=758958561]
+position = Vector2(9, 11)
+shape = SubResource("CircleShape2D_0uyoc")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
