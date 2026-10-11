@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://02bc3modndcx"]
+
+[ext_resource type="Texture2D" uid="uid://df3t4nd14c4ai" path="res://asset/sprites/slime_purple.png" id="1_bk7in"]
+[ext_resource type="Script" uid="uid://dbef7clk4bbkh" path="res://script/CommonEnemy.gd" id="1_hxnm2"]
+[ext_resource type="Texture2D" uid="uid://mifmcpfjsurl" path="res://asset/sprites/HP_Back.png" id="2_hxnm2"]
+[ext_resource type="Texture2D" uid="uid://duobyner18gbp" path="res://asset/sprites/HP_Front.png" id="3_0yxbc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdxco"]
+atlas = ExtResource("1_bk7in")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2507a"]
+atlas = ExtResource("1_bk7in")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_itlrd"]
+atlas = ExtResource("1_bk7in")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifwod"]
+atlas = ExtResource("1_bk7in")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8kbej"]
+atlas = ExtResource("1_bk7in")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bf0qu"]
+atlas = ExtResource("1_bk7in")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x6ges"]
+atlas = ExtResource("1_bk7in")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wp5od"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdxco")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2507a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_itlrd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifwod")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8kbej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bf0qu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x6ges")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k56px"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0yxbc"]
+radius = 7.0
+
+[node name="Slime" type="CharacterBody2D" unique_id=745602196]
+script = ExtResource("1_hxnm2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1222594492]
+sprite_frames = SubResource("SpriteFrames_wp5od")
+autoplay = "default"
+frame_progress = 0.13251488
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=236625364]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_k56px")
+
+[node name="CommonEnemyHP" type="TextureProgressBar" parent="." unique_id=714081713]
+offset_left = -169.0
+offset_top = -365.0
+offset_right = 166.0
+offset_bottom = 380.0
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0.07, 0.07)
+max_value = 20.0
+value = 20.0
+texture_under = ExtResource("2_hxnm2")
+texture_progress = ExtResource("3_0yxbc")
+
+[node name="FloorCheck" type="RayCast2D" parent="." unique_id=618080603]
+position = Vector2(7, 12)
+target_position = Vector2(6, 4)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1131994257]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=137001287]
+position = Vector2(0, 6)
+shape = SubResource("CircleShape2D_0yxbc")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

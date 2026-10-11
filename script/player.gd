@@ -43,9 +43,9 @@ func _physics_process(delta: float) -> void:
 	
 		sprite.flip_h = last_direction < 0
 		if last_direction == 1.0:
-			shoot_point.position.x = 5
+			shoot_point.position.x = -15
 		else:
-			shoot_point.position.x = -60
+			shoot_point.position.x = -40
 		shoot_point.position.y = -22
 
 		var left := Input.is_action_pressed("move_left")
