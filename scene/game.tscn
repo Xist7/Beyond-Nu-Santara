@@ -164,7 +164,7 @@ sources/0 = SubResource("TileSetAtlasSource_33cqm")
 [node name="Game" type="Node2D" unique_id=34785512]
 
 [node name="Player" parent="." unique_id=78743217 instance=ExtResource("1_5kiuu")]
-position = Vector2(33, 104)
+position = Vector2(33, 128)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=2082477473]
 zoom = Vector2(3.5, 3.5)
@@ -187,6 +187,9 @@ position = Vector2(319, -113)
 [node name="Spike3" parent="." unique_id=1661578489 instance=ExtResource("4_xwcet")]
 position = Vector2(240, -191)
 
+[node name="Spike4" parent="." unique_id=675798043 instance=ExtResource("4_xwcet")]
+position = Vector2(87, -287)
+
 [node name="Spike5" parent="." unique_id=850869744 instance=ExtResource("4_xwcet")]
 position = Vector2(190, -547)
 
@@ -198,6 +201,12 @@ position = Vector2(415, -401)
 
 [node name="Spike8" parent="." unique_id=1247724602 instance=ExtResource("4_xwcet")]
 position = Vector2(318, -434)
+
+[node name="Spike9" parent="." unique_id=129308890 instance=ExtResource("4_xwcet")]
+position = Vector2(94, -383)
+
+[node name="Spike10" parent="." unique_id=1712844209 instance=ExtResource("4_xwcet")]
+position = Vector2(108, -287)
 
 [node name="Spike11" parent="." unique_id=309177224 instance=ExtResource("4_xwcet")]
 position = Vector2(367, -674)
@@ -229,14 +238,32 @@ position = Vector2(193, -862)
 [node name="Spike20" parent="." unique_id=390310914 instance=ExtResource("4_xwcet")]
 position = Vector2(193, -1119)
 
+[node name="Spike21" parent="." unique_id=1814607513 instance=ExtResource("4_xwcet")]
+position = Vector2(353, -543)
+
+[node name="Spike22" parent="." unique_id=220820024 instance=ExtResource("4_xwcet")]
+position = Vector2(317, -782)
+
+[node name="Spike23" parent="." unique_id=1306388734 instance=ExtResource("4_xwcet")]
+position = Vector2(497, -960)
+
+[node name="Spike24" parent="." unique_id=50953249 instance=ExtResource("4_xwcet")]
+position = Vector2(433, -894)
+
 [node name="Slime" parent="." unique_id=745602196 instance=ExtResource("5_p1ry8")]
 position = Vector2(174, -75)
 
 [node name="Slime2" parent="." unique_id=1789532680 instance=ExtResource("5_p1ry8")]
 position = Vector2(415, -43)
 
+[node name="Slime3" parent="." unique_id=1020927748 instance=ExtResource("5_p1ry8")]
+position = Vector2(58, -555)
+
 [node name="Slime4" parent="." unique_id=711612739 instance=ExtResource("5_p1ry8")]
 position = Vector2(500, -427)
+
+[node name="Slime5" parent="." unique_id=831237992 instance=ExtResource("5_p1ry8")]
+position = Vector2(205, -347)
 
 [node name="Slime6" parent="." unique_id=307990265 instance=ExtResource("5_p1ry8")]
 position = Vector2(283, -971)
@@ -259,38 +286,11 @@ position = Vector2(40, -1051)
 [node name="Slime12" parent="." unique_id=737226535 instance=ExtResource("5_p1ry8")]
 position = Vector2(476, -715)
 
+[node name="Slime13" parent="." unique_id=788920321 instance=ExtResource("5_p1ry8")]
+position = Vector2(370, -331)
+
 [node name="Slime14" parent="." unique_id=267337175 instance=ExtResource("5_p1ry8")]
 position = Vector2(153, -1049)
 
 [node name="Slime15" parent="." unique_id=1922975222 instance=ExtResource("5_p1ry8")]
 position = Vector2(467, -1132)
-
-[node name="Spike4" parent="." unique_id=675798043 instance=ExtResource("4_xwcet")]
-position = Vector2(87, -287)
-
-[node name="Spike10" parent="." unique_id=1712844209 instance=ExtResource("4_xwcet")]
-position = Vector2(108, -287)
-
-[node name="Spike9" parent="." unique_id=129308890 instance=ExtResource("4_xwcet")]
-position = Vector2(94, -383)
-
-[node name="Spike21" parent="." unique_id=1814607513 instance=ExtResource("4_xwcet")]
-position = Vector2(353, -543)
-
-[node name="Slime3" parent="." unique_id=1020927748 instance=ExtResource("5_p1ry8")]
-position = Vector2(58, -555)
-
-[node name="Slime5" parent="." unique_id=831237992 instance=ExtResource("5_p1ry8")]
-position = Vector2(205, -347)
-
-[node name="Slime13" parent="." unique_id=788920321 instance=ExtResource("5_p1ry8")]
-position = Vector2(370, -331)
-
-[node name="Spike22" parent="." unique_id=220820024 instance=ExtResource("4_xwcet")]
-position = Vector2(317, -782)
-
-[node name="Spike23" parent="." unique_id=1306388734 instance=ExtResource("4_xwcet")]
-position = Vector2(497, -960)
-
-[node name="Spike24" parent="." unique_id=50953249 instance=ExtResource("4_xwcet")]
-position = Vector2(433, -894)
