@@ -1,14 +1,7 @@
-<<<<<<< Updated upstream
-[gd_scene format=3 uid="uid://02bc3modndcx"]
-
-[ext_resource type="Texture2D" uid="uid://df3t4nd14c4ai" path="res://asset/sprites/slime_purple.png" id="1_bk7in"]
-[ext_resource type="Script" uid="uid://dbef7clk4bbkh" path="res://script/CommonEnemy.gd" id="1_hxnm2"]
-=======
 [gd_scene format=3 uid="uid://l4n4ixy646eq"]
 
 [ext_resource type="Texture2D" uid="uid://df3t4nd14c4ai" path="res://asset/sprites/slime_purple.png" id="1_bk7in"]
 [ext_resource type="Script" path="res://script/CommonEnemy.gd" id="1_hxnm2"]
->>>>>>> Stashed changes
 [ext_resource type="Texture2D" uid="uid://by75jyjgkw4kd" path="res://asset/sprites/antihero-healthbar_Background.png" id="3_hxnm2"]
 [ext_resource type="Texture2D" uid="uid://bip30lc4o1d60" path="res://asset/sprites/antihero-healthbar_Health.png" id="4_0yxbc"]
 
