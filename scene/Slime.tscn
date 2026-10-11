@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://df3t4nd14c4ai" path="res://asset/sprites/slime_purple.png" id="1_bk7in"]
 [ext_resource type="Script" uid="uid://dbef7clk4bbkh" path="res://script/CommonEnemy.gd" id="1_hxnm2"]
-[ext_resource type="Texture2D" uid="uid://mifmcpfjsurl" path="res://asset/sprites/HP_Back.png" id="2_hxnm2"]
-[ext_resource type="Texture2D" uid="uid://duobyner18gbp" path="res://asset/sprites/HP_Front.png" id="3_0yxbc"]
+[ext_resource type="Texture2D" uid="uid://by75jyjgkw4kd" path="res://asset/sprites/antihero-healthbar_Background.png" id="3_hxnm2"]
+[ext_resource type="Texture2D" uid="uid://bip30lc4o1d60" path="res://asset/sprites/antihero-healthbar_Health.png" id="4_0yxbc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kdxco"]
 atlas = ExtResource("1_bk7in")
@@ -80,21 +80,21 @@ frame_progress = 0.13251488
 position = Vector2(0, 6)
 shape = SubResource("CircleShape2D_k56px")
 
-[node name="CommonEnemyHP" type="TextureProgressBar" parent="." unique_id=714081713]
-offset_left = -169.0
-offset_top = -365.0
-offset_right = 166.0
-offset_bottom = 380.0
-offset_transform_enabled = true
-offset_transform_scale = Vector2(0.07, 0.07)
-max_value = 20.0
-value = 20.0
-texture_under = ExtResource("2_hxnm2")
-texture_progress = ExtResource("3_0yxbc")
-
 [node name="FloorCheck" type="RayCast2D" parent="." unique_id=618080603]
 position = Vector2(7, 12)
 target_position = Vector2(6, 4)
+
+[node name="CommonEnemyHP" type="TextureProgressBar" parent="." unique_id=416458486]
+offset_left = -30.0
+offset_top = -13.0
+offset_right = 30.0
+offset_bottom = 7.0
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0.3, 0.3)
+max_value = 20.0
+value = 20.0
+texture_under = ExtResource("3_hxnm2")
+texture_progress = ExtResource("4_0yxbc")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1131994257]
 
