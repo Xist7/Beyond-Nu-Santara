@@ -14,8 +14,6 @@ func start_damage_cooldown() -> void:
 	can_damage = false
 	await get_tree().create_timer(0.6).timeout
 	can_damage = true
-
-	# Mengecek apakah player masih berdiri di atas trap setelah cooldown selesai
 	for body in $Area2D.get_overlapping_bodies():
 		if body.is_in_group("player"):
 			_on_area_2d_body_entered(body)
