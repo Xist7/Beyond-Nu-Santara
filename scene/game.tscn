@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://edbr08sl7vfh" path="res://asset/sprites/world_tileset.png" id="2_dbls1"]
 [ext_resource type="PackedScene" uid="uid://c4nsr6bvp0kq0" path="res://scene/boss_1.tscn" id="3_33cqm"]
 [ext_resource type="PackedScene" uid="uid://cl77by5raep3j" path="res://scene/spike.tscn" id="4_xwcet"]
-[ext_resource type="PackedScene" uid="uid://02bc3modndcx" path="res://scene/Slime.tscn" id="5_p1ry8"]
+[ext_resource type="PackedScene" uid="uid://l4n4ixy646eq" path="res://scene/Slime.tscn" id="5_p1ry8"]
+[ext_resource type="AudioStream" uid="uid://crwp73pkw4xkf" path="res://asset/music/time_for_adventure.mp3" id="6_xlg7c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_33cqm"]
 texture = ExtResource("2_dbls1")
@@ -294,3 +295,7 @@ position = Vector2(153, -1049)
 
 [node name="Slime15" parent="." unique_id=1922975222 instance=ExtResource("5_p1ry8")]
 position = Vector2(467, -1132)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2146788532]
+stream = ExtResource("6_xlg7c")
+autoplay = true
