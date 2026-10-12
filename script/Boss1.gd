@@ -7,13 +7,14 @@ extends CharacterBody2D
 @export var jump_force: float = 350.0
 @export var charge_speed: float = 350.0
 @export var charge_duration: float = 0.8
+@export var windup_duration: float = 1.0
 
 var current_HP: int
 var start_x: float
 var direction: float = 1.0
 var can_damage: bool = true
 
-enum BossState { PATROL, JUMP, CHARGE }
+enum BossState { PATROL, JUMP, WINDUP, CHARGE }
 var state: BossState = BossState.PATROL
 var action_timer: float = 1.0
 var state_timer: float = 0.0
@@ -52,18 +53,30 @@ func _physics_process(delta: float) -> void:
 							direction = sign(player.global_position.x - global_position.x)
 							if direction == 0:
 								direction = 1.0
-						state = BossState.CHARGE
-						state_timer = charge_duration
+						state = BossState.WINDUP
+						state_timer = windup_duration
 
 			BossState.JUMP:
 				velocity.x = direction * move_speed
+
+			BossState.WINDUP:
+				velocity.x = 0.0
+				sprite.pause()
+				state_timer -= delta
+				# kedip merah sebagai aba-aba
+				sprite.modulate = Color(1, 0.4, 0.4) if int(state_timer * 10) % 2 == 0 else Color(1, 1, 1)
+				if state_timer <= 0.0:
+					sprite.modulate = Color(1, 1, 1)
+					sprite.play()
+					state = BossState.CHARGE
+					state_timer = charge_duration
 
 			BossState.CHARGE:
 				velocity.x = direction * charge_speed
 				state_timer -= delta
 				if state_timer <= 0.0:
 					state = BossState.PATROL
-					action_timer = 0.8
+					action_timer = 0.8tar
 	
 	move_and_slide()
 	if is_on_wall():
