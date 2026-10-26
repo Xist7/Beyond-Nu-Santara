@@ -76,7 +76,7 @@ func _physics_process(delta: float) -> void:
 				state_timer -= delta
 				if state_timer <= 0.0:
 					state = BossState.PATROL
-					action_timer = 0.8tar
+					action_timer = 0.8
 	
 	move_and_slide()
 	if is_on_wall():
