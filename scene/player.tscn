@@ -45,20 +45,24 @@ animations = [{
 radius = 5.0
 
 [node name="Player" type="CharacterBody2D" unique_id=2049280308]
+z_index = 1
 position = Vector2(16, 28)
 script = ExtResource("1_hjaqi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1101836241]
+z_index = 1
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_oh5ij")
 animation = &"Idle"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1108710953]
+z_index = 1
 position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_hp4bs")
 
 [node name="PlayerHP" type="TextureProgressBar" parent="." unique_id=1343490975]
+z_index = 1
 offset_left = -29.0
 offset_top = -33.0
 offset_right = 31.0
@@ -72,4 +76,5 @@ texture_progress = ExtResource("4_s4jxa")
 metadata/_edit_use_anchors_ = true
 
 [node name="Projectile" type="Marker2D" parent="." unique_id=227916686]
+z_index = 1
 position = Vector2(5, -22)
