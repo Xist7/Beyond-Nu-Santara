@@ -106,5 +106,5 @@ func shoot() -> void:
 	bullet.direction = shoot_direction
 	bullet.global_position = shoot_point.global_position
 	get_tree().current_scene.add_child(bullet)
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(1.0).timeout
 	can_shoot = true
