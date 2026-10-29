@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bf0xgrkav6wy8" path="res://script/player.gd" id="1_hjaqi"]
 [ext_resource type="Texture2D" uid="uid://racm8m112sco" path="res://asset/sprites/knight.png" id="1_xo3ru"]
-[ext_resource type="Texture2D" uid="uid://5wodhsi3uvq8" path="res://asset/sprites/Navara Ucup-idle-trimmed.png" id="2_oh5ij"]
+[ext_resource type="Texture2D" uid="uid://dalmeabxx16f1" path="res://asset/sprites/Navara Ucup-idle.png" id="2_oh5ij"]
 [ext_resource type="Texture2D" uid="uid://by75jyjgkw4kd" path="res://asset/sprites/antihero-healthbar_Background.png" id="3_ct4mp"]
-[ext_resource type="Texture2D" uid="uid://dgs3ifh25fx3" path="res://asset/sprites/Navara Ucup-walk-trimmed.png" id="4_hp4bs"]
+[ext_resource type="Texture2D" uid="uid://b4xd5flpwdy5v" path="res://asset/sprites/Navara Ucup-walk.png" id="4_hp4bs"]
 [ext_resource type="Texture2D" uid="uid://bip30lc4o1d60" path="res://asset/sprites/antihero-healthbar_Health.png" id="4_s4jxa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2vtq"]
@@ -65,15 +65,15 @@ region = Rect2(768, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j4wxg"]
 atlas = ExtResource("4_hp4bs")
-region = Rect2(512, 256, 256, 256)
+region = Rect2(256, 256, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bup7g"]
 atlas = ExtResource("4_hp4bs")
-region = Rect2(256, 512, 256, 256)
+region = Rect2(0, 512, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ja17"]
 atlas = ExtResource("4_hp4bs")
-region = Rect2(1024, 512, 256, 256)
+region = Rect2(768, 512, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v4iqv"]
 atlas = ExtResource("4_hp4bs")
@@ -164,9 +164,9 @@ z_index = 1
 position = Vector2(2.3841858e-07, -4.999999)
 scale = Vector2(0.18734375, 0.18734375)
 sprite_frames = SubResource("SpriteFrames_oh5ij")
-animation = &"Idle"
+animation = &"walk"
 autoplay = "Idle"
-frame_progress = 0.58886886
+frame_progress = 0.16781119
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1108710953]
 position = Vector2(1, -1)
