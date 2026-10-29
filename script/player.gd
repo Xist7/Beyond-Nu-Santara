@@ -27,49 +27,67 @@ func _ready() -> void:
 	hp_bar.value = CURRENT_HP_PLAYER
 	
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
+	# Gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-	# Handle jump.
+
+	# Jump
 	if Input.is_action_just_pressed("jump") and is_on_floor() and not is_knockedback:
 		velocity.y = JUMP_VELOCITY
 
-	# Get the input direction and handle the movement/deceleration.
 	if not is_knockedback:
-		if Input.is_action_just_pressed("move_left"):
-			last_direction = -1.0
-		elif Input.is_action_just_pressed("move_right"):
-			last_direction = 1.0
-	
-		sprite.flip_h = last_direction < 0
-		if last_direction == 1.0:
-			shoot_point.position.x = -15
-		else:
-			shoot_point.position.x = -40
-		shoot_point.position.y = -22
-
 		var left := Input.is_action_pressed("move_left")
 		var right := Input.is_action_pressed("move_right")
 		var direction := 0.0
-		if left and right:
-			direction = last_direction
-		elif left:
-			direction = -1.0
-		elif right:
-			direction = 1.0
-		
-		if direction != 0:
+		if left:
+			direction -= 1.0
+		if right:
+			direction += 1.0
+
+		# Update last_direction HANYA saat ada input
+		if direction != 0.0:
+			last_direction = direction
 			sprite.flip_h = direction < 0
 
-		if direction:
+			# Posisi shoot_point berdasarkan arah hadap
+			if direction > 0:
+				shoot_point.position.x = -15
+			else:
+				shoot_point.position.x = -40
+			shoot_point.position.y = -22
+
+		# Gerakkan player
+		if direction != 0.0:
 			velocity.x = direction * SPEED
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
-			
+
+		# Shoot
 		if Input.is_action_just_pressed("shoot"):
 			shoot()
 
+	# Panggil update animasi (pakai velocity.x agar akurat)
+	_update_animation(abs(velocity.x) > 1.0)
+
 	move_and_slide()
+	
+func _update_animation(is_moving: bool) -> void:
+	if is_knockedback:
+		if sprite.animation != "Idle":
+			sprite.play("Idle")
+		return
+
+	if not sprite or not sprite.sprite_frames:
+		return
+	var target_anim := "Idle"
+	if is_moving and sprite.sprite_frames.has_animation("walk"):
+		target_anim = "walk"
+
+	if not sprite.sprite_frames.has_animation(target_anim):
+		return
+
+	if sprite.animation != target_anim:
+		sprite.play(target_anim)
 
 func take_damage(amount: int, damage_source_position: Vector2) -> void:
 	CURRENT_HP_PLAYER -= amount
@@ -106,5 +124,5 @@ func shoot() -> void:
 	bullet.direction = shoot_direction
 	bullet.global_position = shoot_point.global_position
 	get_tree().current_scene.add_child(bullet)
-	await get_tree().create_timer(2.0).timeout
+	await get_tree().create_timer(0.7).timeout
 	can_shoot = true
