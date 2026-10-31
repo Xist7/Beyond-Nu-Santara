@@ -66,7 +66,7 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("shoot"):
 			shoot()
 
-	# Panggil update animasi (pakai velocity.x agar akurat)
+
 	_update_animation(abs(velocity.x) > 1.0)
 
 	move_and_slide()
@@ -93,19 +93,22 @@ func take_damage(amount: int, damage_source_position: Vector2) -> void:
 	CURRENT_HP_PLAYER -= amount
 	hp_bar.value = CURRENT_HP_PLAYER 
 	apply_knockback(damage_source_position)
+	
 	if CURRENT_HP_PLAYER <= 0:
 		die()
 
 func die() -> void:
 	print("You died")
-	respawn()
+	set_physics_process(false)
+	get_tree().current_scene.show_death_menu()
 
 func respawn() -> void:
 	CURRENT_HP_PLAYER = MAX_HP_PLAYER
-	hp_bar.value = CURRENT_HP_PLAYER # <-- Reset tampilan bar saat respawn
+	hp_bar.value = CURRENT_HP_PLAYER 
 	velocity = Vector2.ZERO
 	global_position = spawn_point
 	print("You Respawn")
+
 	
 func apply_knockback(source_pos: Vector2) -> void:
 	is_knockedback = true

@@ -170,19 +170,65 @@ sources/0 = SubResource("TileSetAtlasSource_33cqm")
 [node name="Game" type="Node2D" unique_id=34785512]
 script = ExtResource("1_xlg7c")
 
-[node name="Level1" type="Node2D" parent="." unique_id=109693100]
-
-[node name="Level2" type="Node2D" parent="." unique_id=784069174]
-
-[node name="Player" parent="Level2" unique_id=78743217 instance=ExtResource("1_5kiuu")]
+[node name="Player" parent="." unique_id=78743217 instance=ExtResource("1_5kiuu")]
 position = Vector2(298, 144)
 
-[node name="Camera2D" type="Camera2D" parent="Level2/Player" unique_id=2082477473]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=2082477473]
 zoom = Vector2(3.5, 3.5)
 process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 11.35
 editor_draw_limits = true
+
+[node name="Level1" type="Node2D" parent="." unique_id=109693100]
+
+[node name="Level2" type="Node2D" parent="." unique_id=784069174]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Level2" unique_id=1855063763]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Level2/ParallaxBackground" unique_id=240415858]
+motion_scale = Vector2(0.76, 0.76)
+motion_offset = Vector2(0.17, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level2/ParallaxBackground/ParallaxLayer" unique_id=1642704461]
+position = Vector2(295.00003, -494.00003)
+scale = Vector2(0.88833344, 1.235465)
+texture = ExtResource("9_17rxn")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Level2/ParallaxBackground" unique_id=1573582435]
+motion_scale = Vector2(0.425, 0.425)
+motion_offset = Vector2(0.17, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level2/ParallaxBackground/ParallaxLayer2" unique_id=1161545749]
+position = Vector2(266, -426)
+scale = Vector2(0.88833344, 0.88833344)
+texture = ExtResource("10_sng2h")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="Level2/ParallaxBackground" unique_id=1567777480]
+motion_scale = Vector2(0.52, 0.52)
+motion_offset = Vector2(0.17, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level2/ParallaxBackground/ParallaxLayer3" unique_id=1746081028]
+position = Vector2(274, -524.00006)
+scale = Vector2(0.99663585, 1.8316511)
+texture = ExtResource("11_5g16k")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="Level2/ParallaxBackground" unique_id=529352466]
+motion_scale = Vector2(0.89, 0.89)
+motion_offset = Vector2(0.17, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level2/ParallaxBackground/ParallaxLayer4" unique_id=258637442]
+position = Vector2(272, -243.00002)
+scale = Vector2(1.1170063, 1.1170062)
+texture = ExtResource("12_81276")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="Level2/ParallaxBackground" unique_id=1134674172]
+motion_scale = Vector2(0.36, 0.36)
+motion_offset = Vector2(0.17, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level2/ParallaxBackground/ParallaxLayer5" unique_id=681478093]
+position = Vector2(266.50003, -161.99994)
+scale = Vector2(0.88833344, 0.88833344)
 
 [node name="TileLayer" type="TileMapLayer" parent="Level2" unique_id=1966963126]
 use_parent_material = true
@@ -320,48 +366,47 @@ position = Vector2(467, -1132)
 stream = ExtResource("7_qpk70")
 autoplay = true
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1855063763]
+[node name="DeathMenu" type="CanvasLayer" parent="." unique_id=416095937]
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=240415858]
-motion_scale = Vector2(0.76, 0.76)
-motion_offset = Vector2(0.17, 0)
+[node name="Menu" type="Control" parent="DeathMenu" unique_id=676761277]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=1642704461]
-position = Vector2(295.00003, -494.00003)
-scale = Vector2(0.88833344, 1.235465)
-texture = ExtResource("9_17rxn")
+[node name="VBoxContainer" type="VBoxContainer" parent="DeathMenu/Menu" unique_id=1570498091]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -46.5
+offset_right = 250.0
+offset_bottom = 46.5
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1573582435]
-motion_scale = Vector2(0.425, 0.425)
-motion_offset = Vector2(0.17, 0)
+[node name="Label" type="Label" parent="DeathMenu/Menu/VBoxContainer" unique_id=192698699]
+layout_mode = 2
+text = "You Died"
+horizontal_alignment = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2" unique_id=1161545749]
-position = Vector2(266, -426)
-scale = Vector2(0.88833344, 0.88833344)
-texture = ExtResource("10_sng2h")
+[node name="Button" type="Button" parent="DeathMenu/Menu/VBoxContainer" unique_id=242347713]
+layout_mode = 2
+text = "Respawn"
 
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1567777480]
-motion_scale = Vector2(0.52, 0.52)
-motion_offset = Vector2(0.17, 0)
+[node name="Button2" type="Button" parent="DeathMenu/Menu/VBoxContainer" unique_id=1116868458]
+layout_mode = 2
+text = "Main Menu"
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3" unique_id=1746081028]
-position = Vector2(274, -524.00006)
-scale = Vector2(0.99663585, 1.8316511)
-texture = ExtResource("11_5g16k")
-
-[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground" unique_id=529352466]
-motion_scale = Vector2(0.89, 0.89)
-motion_offset = Vector2(0.17, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4" unique_id=258637442]
-position = Vector2(272, -243.00002)
-scale = Vector2(1.1170063, 1.1170062)
-texture = ExtResource("12_81276")
-
-[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1134674172]
-motion_scale = Vector2(0.36, 0.36)
-motion_offset = Vector2(0.17, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5" unique_id=681478093]
-position = Vector2(266.50003, -161.99994)
-scale = Vector2(0.88833344, 0.88833344)
+[connection signal="pressed" from="DeathMenu/Menu/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="DeathMenu/Menu/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
