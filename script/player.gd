@@ -14,6 +14,8 @@ var last_direction: float = 0.0
 var CURRENT_HP_PLAYER: int
 var can_shoot: bool = true
 const KNOCKBACK_FORCE = Vector2(250, -200)
+const BODY_CENTER = Vector2(0, -5)
+const SHOOT_RADIUS = 10
 var is_knockedback : bool = false 
 const Projectile_Scene_p=preload("res://scene/p_projectile.tscn")
 
@@ -49,13 +51,6 @@ func _physics_process(delta: float) -> void:
 			last_direction = direction
 			sprite.flip_h = direction < 0
 
-			# Posisi shoot_point berdasarkan arah hadap
-			if direction > 0:
-				shoot_point.position.x = -15
-			else:
-				shoot_point.position.x = -40
-			shoot_point.position.y = -22
-
 		# Gerakkan player
 		if direction != 0.0:
 			velocity.x = direction * SPEED
@@ -68,9 +63,13 @@ func _physics_process(delta: float) -> void:
 
 
 	_update_animation(abs(velocity.x) > 1.0)
-
+	_update_shoot_point()
 	move_and_slide()
-	
+
+func _update_shoot_point() -> void:
+	var aim := (get_global_mouse_position() - (global_position + BODY_CENTER)).normalized()
+	shoot_point.position = BODY_CENTER + aim * SHOOT_RADIUS
+
 func _update_animation(is_moving: bool) -> void:
 	if is_knockedback:
 		if sprite.animation != "Idle":
@@ -93,6 +92,7 @@ func take_damage(amount: int, damage_source_position: Vector2) -> void:
 	CURRENT_HP_PLAYER -= amount
 	hp_bar.value = CURRENT_HP_PLAYER 
 	apply_knockback(damage_source_position)
+
 	
 	if CURRENT_HP_PLAYER <= 0:
 		die()
@@ -117,15 +117,23 @@ func apply_knockback(source_pos: Vector2) -> void:
 	velocity.y = KNOCKBACK_FORCE.y
 	await get_tree().create_timer(0.20).timeout
 	is_knockedback = false
-	
+
 func shoot() -> void:
 	if not can_shoot:
 		return
 	can_shoot = false
+
+	var origin := shoot_point.global_position
+	var shoot_direction := (get_global_mouse_position() - origin).normalized()
+
+	if shoot_direction.x != 0:
+		last_direction = sign(shoot_direction.x)
+		sprite.flip_h = shoot_direction.x < 0
+
 	var bullet = Projectile_Scene_p.instantiate()
-	var shoot_direction = last_direction if last_direction != 0.0 else 1.0
 	bullet.direction = shoot_direction
-	bullet.global_position = shoot_point.global_position
+	bullet.rotation = shoot_direction.angle()
+	bullet.global_position = origin
 	get_tree().current_scene.add_child(bullet)
 	await get_tree().create_timer(0.7).timeout
 	can_shoot = true
