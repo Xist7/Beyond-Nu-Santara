@@ -119,21 +119,21 @@ func apply_knockback(source_pos: Vector2) -> void:
 	is_knockedback = false
 
 func shoot() -> void:
-		if not can_shoot:
+	if not can_shoot:
 		return
-		can_shoot = false
+	can_shoot = false
 
-		var origin := shoot_point.global_position
-		var shoot_direction := (get_global_mouse_position() - origin).normalized()
+	var origin := shoot_point.global_position
+	var shoot_direction := (get_global_mouse_position() - origin).normalized()
 
-		if shoot_direction.x != 0
-			last_direction = sign(shoot_direction.x)
-			sprite.flip_h = shoot_direction.x < 0
+	if shoot_direction.x != 0:
+		last_direction = sign(shoot_direction.x)
+		sprite.flip_h = shoot_direction.x < 0
 
-		var bullet = Projectile_Scene_p.instantiate()
-		bullet.direction = shoot_direction
-		bullet.rotation = shoot_direction.angle()
-		bullet.global_position = origin
-		get_tree().current_scene.add_child(bullet)
-		await get_tree().create_timer(0.7).timeout
-		can_shoot = true
+	var bullet = Projectile_Scene_p.instantiate()
+	bullet.direction = shoot_direction
+	bullet.rotation = shoot_direction.angle()
+	bullet.global_position = origin
+	get_tree().current_scene.add_child(bullet)
+	await get_tree().create_timer(0.7).timeout
+	can_shoot = true
