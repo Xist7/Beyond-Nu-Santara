@@ -333,7 +333,6 @@ position = Vector2(298, 144)
 [node name="Level2" type="Node2D" parent="." unique_id=977275810]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Level2" unique_id=621698728]
-visible = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Level2/ParallaxBackground" unique_id=400466145]
 motion_scale = Vector2(0.76, 0.76)

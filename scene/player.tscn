@@ -129,4 +129,4 @@ texture_progress = ExtResource("4_s4jxa")
 metadata/_edit_use_anchors_ = true
 
 [node name="Projectile" type="Marker2D" parent="." unique_id=227916686]
-position = Vector2(5, -16)
+position = Vector2(2, 0)
