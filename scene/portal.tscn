@@ -66,7 +66,7 @@ animations = [{
 "texture": ExtResource("16_nxurc")
 }],
 "loop": 1,
-"name": &"default",
+"name": &"Idle",
 "speed": 5.0
 }]
 
@@ -80,7 +80,8 @@ script = ExtResource("1_lidl3")
 position = Vector2(-66, 0.99999976)
 scale = Vector2(0.234375, 0.22265626)
 sprite_frames = SubResource("SpriteFrames_wp5od")
-autoplay = "default"
+animation = &"Idle"
+autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1490925195]
 position = Vector2(-66, 1)
