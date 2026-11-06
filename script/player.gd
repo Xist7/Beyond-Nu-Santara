@@ -24,16 +24,14 @@ func _ready() -> void:
 	add_to_group("player")
 	CURRENT_HP_PLAYER = MAX_HP_PLAYER
 	
-	# Set nilai awal bar HP
 	hp_bar.max_value = MAX_HP_PLAYER
 	hp_bar.value = CURRENT_HP_PLAYER
 	
 func _physics_process(delta: float) -> void:
-	# Gravity
+
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# Jump
 	if Input.is_action_just_pressed("jump") and is_on_floor() and not is_knockedback:
 		velocity.y = JUMP_VELOCITY
 
@@ -46,18 +44,15 @@ func _physics_process(delta: float) -> void:
 		if right:
 			direction += 1.0
 
-		# Update last_direction HANYA saat ada input
 		if direction != 0.0:
 			last_direction = direction
 			sprite.flip_h = direction < 0
 
-		# Gerakkan player
 		if direction != 0.0:
 			velocity.x = direction * SPEED
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 
-		# Shoot
 		if Input.is_action_just_pressed("shoot"):
 			shoot()
 
@@ -92,7 +87,6 @@ func take_damage(amount: int, damage_source_position: Vector2) -> void:
 	CURRENT_HP_PLAYER -= amount
 	hp_bar.value = CURRENT_HP_PLAYER 
 	apply_knockback(damage_source_position)
-
 	
 	if CURRENT_HP_PLAYER <= 0:
 		die()

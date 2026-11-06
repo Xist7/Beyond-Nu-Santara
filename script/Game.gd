@@ -8,6 +8,7 @@ func _ready():
 	$DeathMenu/Menu.visible = false
 
 func show_level(level):
+	current_level=level
 	$Level1.visible = false
 	$Level1.process_mode = Node.PROCESS_MODE_DISABLED
 	$Level1/TileLayer.set_deferred("collision_enabled", false)
