@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4mhc16sawddl"
-path="res://.godot/imported/Golem_1_die.png-3df55713303aed6922ca3a132c07a66e.ctex"
+uid="uid://chv7wxwfou28h"
+path="res://.godot/imported/dragon-idle2.png-755f63a2945c0f58132e7201552dc0ef.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/sprites/Blue_Golem/Golem_1_die.png"
-dest_files=["res://.godot/imported/Golem_1_die.png-3df55713303aed6922ca3a132c07a66e.ctex"]
+source_file="res://asset/sprites/Boss/Dragon/dragon-idle2.png"
+dest_files=["res://.godot/imported/dragon-idle2.png-755f63a2945c0f58132e7201552dc0ef.ctex"]
 
 [params]
 

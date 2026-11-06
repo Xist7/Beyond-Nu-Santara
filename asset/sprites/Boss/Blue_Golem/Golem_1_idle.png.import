@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b61jvtowese63"
-path="res://.godot/imported/Golem_1_walk.png-1242ac8dda90fc9dc993d91041840d1e.ctex"
+uid="uid://bd8u2xo4nrjgn"
+path="res://.godot/imported/Golem_1_idle.png-ec13c743f61d743873086a8f7fdfc561.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/sprites/Blue_Golem/Golem_1_walk.png"
-dest_files=["res://.godot/imported/Golem_1_walk.png-1242ac8dda90fc9dc993d91041840d1e.ctex"]
+source_file="res://asset/sprites/Boss/Blue_Golem/Golem_1_idle.png"
+dest_files=["res://.godot/imported/Golem_1_idle.png-ec13c743f61d743873086a8f7fdfc561.ctex"]
 
 [params]
 
