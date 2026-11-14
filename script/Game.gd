@@ -1,14 +1,20 @@
 extends Node2D
 
-
+@onready var upgrade_menu: Control = $UpgradeMenu
 var current_level = 1
+var reward_upgrade: Node2D
 
 func _ready():
 	show_level(1)
 	$DeathMenu/Menu.visible = false
+	
+	upgrade_menu.process_mode = Node.PROCESS_MODE_ALWAYS
+	upgrade_menu.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	upgrade_menu.z_index = 100
+	upgrade_menu.upgrade_selected.connect(_on_upgrade_selected)
 
 func show_level(level):
-	current_level=level
+	current_level = level
 	$Level1.visible = false
 	$Level1.process_mode = Node.PROCESS_MODE_DISABLED
 	$Level1/TileLayer.set_deferred("collision_enabled", false)
@@ -70,3 +76,22 @@ func _on_button_pressed() -> void:
 
 func _on_button_2_pressed() -> void:
 	get_tree().change_scene_to_file("res://scene/Main menu.tscn")
+
+func show_upgrade_choices(player: Node2D) -> void:
+	print("Showing upgrade choices")
+
+	reward_upgrade = player
+	upgrade_menu.show_upgrades()
+
+	print("Upgrade menu visible: ", upgrade_menu.visible)
+	print("Upgrade menu size: ", upgrade_menu.size)
+	print("Upgrade menu position: ", upgrade_menu.global_position)
+
+	get_tree().paused = true
+
+func _on_upgrade_selected(upgrade_id: String) -> void:
+	if reward_upgrade:
+		reward_upgrade.apply_upgrade(upgrade_id)
+	upgrade_menu.visible = false
+	reward_upgrade = null
+	get_tree().paused = false

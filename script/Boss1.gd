@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var move_speed: float = 120.0
 @export var move_distance: float = 120.0
-@export var Max_HP_boss: int = 300
+@export var Max_HP_boss: int = 20
 @export var damage: int = 20
 @export var jump_force: float = 350.0
 @export var charge_speed: float = 350.0
@@ -14,7 +14,7 @@ var start_x: float
 var direction: float = 1.0
 var can_damage: bool = true
 
-enum BossState { PATROL, JUMP, WINDUP, CHARGE }
+enum BossState {PATROL, JUMP, WINDUP, CHARGE}
 var state: BossState = BossState.PATROL
 var action_timer: float = 1.0
 var state_timer: float = 0.0
@@ -46,7 +46,7 @@ func _physics_process(delta: float) -> void:
 					var action = randi_range(0, 1)
 					if action == 0:
 						state = BossState.JUMP
-						velocity.y = -jump_force
+						velocity.y = - jump_force
 					else:
 						var player = get_tree().get_first_node_in_group("player")
 						if player:
@@ -91,12 +91,17 @@ func _physics_process(delta: float) -> void:
 	sprite.flip_h = direction < 0
 
 func take_damage(amount: int, damage_source_position: Vector2 = Vector2.ZERO) -> void:
-	current_HP = max(0, current_HP-amount)
-	hp_bar.value=current_HP
-	if current_HP<=0:
+	current_HP = max(0, current_HP - amount)
+	hp_bar.value = current_HP
+	if current_HP <= 0:
 		die()
 
 func die() -> void:
+	var player = get_tree().get_first_node_in_group("player")
+	var game = get_tree().current_scene
+	
+	if player and game.has_method("show_upgrade_choices"):
+		game.call_deferred("show_upgrade_choices", player)
 	queue_free()
 	
 

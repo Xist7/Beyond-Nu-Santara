@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://ci4ywo2r774ct" path="res://asset/background/Ocean_6/3.png" id="11_5g16k"]
 [ext_resource type="Texture2D" uid="uid://csng4108xdfqn" path="res://asset/background/Ocean_6/4.png" id="12_81276"]
 [ext_resource type="PackedScene" uid="uid://ciyhc3qqbkqjn" path="res://scene/dragon_boss.tscn" id="13_81276"]
+[ext_resource type="PackedScene" uid="uid://dlh67juii14cb" path="res://scene/upgrade_menu.tscn" id="15_ve786"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5g16k"]
 texture = ExtResource("9_5g16k")
@@ -691,10 +692,8 @@ position = Vector2(265, 145)
 position = Vector2(298, 144)
 
 [node name="Level2" type="Node2D" parent="." unique_id=977275810]
-visible = false
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Level2" unique_id=621698728]
-visible = false
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Level2/ParallaxBackground" unique_id=400466145]
 motion_scale = Vector2(0.76, 0.76)
@@ -870,7 +869,6 @@ position = Vector2(153, -1049)
 position = Vector2(467, -1132)
 
 [node name="Level3" type="Node2D" parent="." unique_id=79887172]
-visible = false
 
 [node name="TileLayer" type="TileMapLayer" parent="Level3" unique_id=975256682]
 position = Vector2(-1, -4)
@@ -884,7 +882,6 @@ position = Vector2(176, 109)
 position = Vector2(246, 69)
 
 [node name="Level4" type="Node2D" parent="." unique_id=410718036]
-visible = false
 
 [node name="TileLayer" type="TileMapLayer" parent="Level4" unique_id=366130541]
 tile_map_data = PackedByteArray("AAAFAAgAAAAIAAAAAAAEAAgAAAAIAAAAAAADAAgAAAAIAAAAAAADAAkAAAAIAAAAAAAEAAkAAAAIAAAAAAAFAAkAAAAIAAAAAAAEAAoAAAAIAAAAAAAEAAsAAAAIAAAAAAAFAAoAAAAIAAAAAAAFAAsAAAAIAAAAAAAGAAgAAAAIAAAAAAAHAAcAAAAIAAAAAAAHAAYAAAAIAAAAAAAGAAYAAAAIAAAAAAAFAAcAAAAIAAAAAAAGAAcAAAAIAAAAAAAGAAkAAAAIAAAAAAAHAAkAAAAIAAAAAAAGAAoAAAAIAAAAAAADAAoAAAAIAAAAAAAEAAcAAAAIAAAAAAAFAAYAAAAIAAAAAAAHAAgAAAAIAAAAAAARAAoAAAAIAAAAAAAQAAoAAAAIAAAAAAAQAAsAAAAIAAAAAAAPAAsAAAAIAAAAAAAOAAsAAAAIAAAAAAAOAAwAAAAIAAAAAAAOAA0AAAAIAAAAAAAPAA0AAAAIAAAAAAAQAA0AAAAIAAAAAAAQAAwAAAAIAAAAAAAPAAwAAAAIAAAAAAARAAsAAAAIAAAAAAARAAwAAAAIAAAAAAARAA0AAAAIAAAAAAARAA4AAAAIAAAAAAAQAA4AAAAIAAAAAAASAA0AAAAIAAAAAAASAAwAAAAIAAAAAAASAAsAAAAIAAAAAAAPAA4AAAAIAAAAAAAYAAkAAAAIAAAAAAAXAAkAAAAIAAAAAAAWAAkAAAAIAAAAAAAWAAoAAAAIAAAAAAAXAAoAAAAIAAAAAAAYAAoAAAAIAAAAAAAYAAsAAAAIAAAAAAAXAAsAAAAIAAAAAAAZAAoAAAAIAAAAAAAZAAkAAAAIAAAAAAAdAAYAAAAIAAAAAAAdAAUAAAAIAAAAAAAcAAUAAAAIAAAAAAAcAAQAAAAIAAAAAAAdAAQAAAAIAAAAAAAcAAYAAAAIAAAAAAAbAAYAAAAIAAAAAAAbAAUAAAAIAAAAAAAdAAMAAAAIAAAAAAAeAAQAAAAIAAAAAAAeAAUAAAAIAAAAAAAeAAYAAAAIAAAAAAAKAAgAAAAIAAAAAAALAAgAAAAIAAAAAAALAAkAAAAIAAAAAAAKAAkAAAAIAAAAAAARAAMAAAAIAAAAAAAKAAIAAAAIAAAAAAAWAAEAAAAIAAAAAAAFAP//AAAIAAAAAAAgAAAAAAAIAAAAAAAgAAEAAAAIAAAAAAAfAAAAAAAIAAAAAAAgAP//AAAIAAAAAAAcAP7/AAAIAAAAAAAbAP7/AAAIAAAAAAA=")
@@ -897,17 +894,17 @@ position = Vector2(307, -95)
 position = Vector2(268, 151)
 
 [node name="Level5" type="Node2D" parent="." unique_id=1353033894]
-visible = false
 
 [node name="TileLayer" type="TileMapLayer" parent="Level5" unique_id=832484484]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1063141186]
-visible = false
 stream = ExtResource("7_qpk70")
 autoplay = true
 
+[node name="UpgradeMenu" parent="." unique_id=1086683137 instance=ExtResource("15_ve786")]
+process_mode = 3
+
 [node name="DeathMenu" type="CanvasLayer" parent="." unique_id=416095937]
-visible = false
 
 [node name="Menu" type="Control" parent="DeathMenu" unique_id=676761277]
 layout_mode = 3
