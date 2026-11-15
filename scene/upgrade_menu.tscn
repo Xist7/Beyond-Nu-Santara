@@ -31,5 +31,5 @@ custom_minimum_size = Vector2(200, 350)
 layout_mode = 2
 
 [node name="Upgrade3" type="Button" parent="CenterContainer/HBoxContainer" unique_id=371371101]
-custom_minimum_size = Vector2(200, 200)
+custom_minimum_size = Vector2(200, 350)
 layout_mode = 2

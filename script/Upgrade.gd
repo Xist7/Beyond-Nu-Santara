@@ -28,6 +28,10 @@ var upgrades = [
 		"id": "heal",
 		"name": "Healing",
 		"description": "Memulihkan 30 HP"
+	},{
+		"id" : "jump",
+		"name" : "High Jump",
+		"description" : "Jump Height +100"
 	}
 ]
 
@@ -37,8 +41,6 @@ func _ready() -> void:
 	visible = false
 
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	position = Vector2.ZERO
-	size = get_viewport_rect().size
 
 	$CenterContainer.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 

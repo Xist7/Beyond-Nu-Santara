@@ -1,16 +1,14 @@
 extends Node2D
 
-@onready var upgrade_menu: Control = $UpgradeMenu
+@onready var upgrade_menu: Control = $UI/UpgradeMenu
 var current_level = 1
 var reward_upgrade: Node2D
 
 func _ready():
 	show_level(1)
-	$DeathMenu/Menu.visible = false
+	$UI/DeathMenu.visible = false
 	
 	upgrade_menu.process_mode = Node.PROCESS_MODE_ALWAYS
-	upgrade_menu.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	upgrade_menu.z_index = 100
 	upgrade_menu.upgrade_selected.connect(_on_upgrade_selected)
 
 func show_level(level):
@@ -67,10 +65,10 @@ func change_level(level: int, player: Node2D):
 	player.spawn_point = spawn.global_position
 
 func show_death_menu():
-	$DeathMenu/Menu.visible = true
+	$UI/DeathMenu.visible = true
 
 func _on_button_pressed() -> void:
-	$DeathMenu/Menu.visible = false
+	$UI/DeathMenu.visible = false
 	$Player.respawn()
 	$Player.set_physics_process(true)
 

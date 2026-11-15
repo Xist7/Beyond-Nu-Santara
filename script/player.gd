@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-const SPEED = 160.0
-const JUMP_VELOCITY = -400.0
+var SPEED = 160.0
+var JUMP_VELOCITY = -400.0
 
 @export var MAX_HP_PLAYER: int = 50
 
@@ -13,11 +13,15 @@ const JUMP_VELOCITY = -400.0
 var last_direction: float = 0.0
 var CURRENT_HP_PLAYER: int
 var can_shoot: bool = true
+var is_knockedback : bool = false 
+var Projectile_Scene_p = preload("res://scene/p_projectile.tscn")
+var Shoot_Cooldown = 0.7
+var Projectile_Damage = 10
+
 const KNOCKBACK_FORCE = Vector2(250, -200)
 const BODY_CENTER = Vector2(0, -5)
 const SHOOT_RADIUS = 10
-var is_knockedback : bool = false 
-const Projectile_Scene_p=preload("res://scene/p_projectile.tscn")
+
 
 
 func _ready() -> void:
@@ -126,8 +130,34 @@ func shoot() -> void:
 
 	var bullet = Projectile_Scene_p.instantiate()
 	bullet.direction = shoot_direction
+	bullet.damage = Projectile_Damage
 	bullet.rotation = shoot_direction.angle()
 	bullet.global_position = origin
 	get_tree().current_scene.add_child(bullet)
-	await get_tree().create_timer(0.7).timeout
+
+	await get_tree().create_timer(Shoot_Cooldown).timeout
 	can_shoot = true
+
+func apply_upgrade(upgrade_id: String) -> void:
+	match upgrade_id:
+		"max_hp":
+			MAX_HP_PLAYER += 20
+			CURRENT_HP_PLAYER += 20
+			hp_bar.max_value = MAX_HP_PLAYER
+			hp_bar.value = CURRENT_HP_PLAYER
+
+		"damage":
+			Projectile_Damage += 10
+
+		"attack_speed":
+			Shoot_Cooldown = max(0.2, Shoot_Cooldown - 0.15)
+
+		"movement_speed":
+			SPEED += 30
+
+		"heal":
+			CURRENT_HP_PLAYER = min(CURRENT_HP_PLAYER + 30, MAX_HP_PLAYER)
+			hp_bar.value = CURRENT_HP_PLAYER
+
+		"jump":
+			JUMP_VELOCITY -= 100  

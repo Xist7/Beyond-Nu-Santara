@@ -751,7 +751,7 @@ position = Vector2(322, 133)
 [node name="Portal" parent="Level2" unique_id=1349169779 instance=ExtResource("4_sng2h")]
 position = Vector2(202, 81)
 
-[node name="Boss1" parent="Level2" unique_id=802908403 instance=ExtResource("3_33cqm")]
+[node name="Boss1" parent="Level2" unique_id=1369127781 instance=ExtResource("3_33cqm")]
 position = Vector2(294, -1249)
 
 [node name="Spike" parent="Level2" unique_id=743591513 instance=ExtResource("4_xwcet")]
@@ -901,12 +901,9 @@ position = Vector2(268, 151)
 stream = ExtResource("7_qpk70")
 autoplay = true
 
-[node name="UpgradeMenu" parent="." unique_id=1086683137 instance=ExtResource("15_ve786")]
-process_mode = 3
+[node name="UI" type="CanvasLayer" parent="." unique_id=686404743]
 
-[node name="DeathMenu" type="CanvasLayer" parent="." unique_id=416095937]
-
-[node name="Menu" type="Control" parent="DeathMenu" unique_id=676761277]
+[node name="DeathMenu" type="Control" parent="UI" unique_id=1201827957]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -918,7 +915,7 @@ offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="DeathMenu/Menu" unique_id=1699148865]
+[node name="ColorRect" type="ColorRect" parent="UI/DeathMenu" unique_id=270900658]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -931,7 +928,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="DeathMenu/Menu" unique_id=1570498091]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/DeathMenu" unique_id=1029501993]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -945,18 +942,21 @@ offset_bottom = 43.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="DeathMenu/Menu/VBoxContainer" unique_id=192698699]
+[node name="Label" type="Label" parent="UI/DeathMenu/VBoxContainer" unique_id=675996796]
 layout_mode = 2
 text = "You Died"
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="DeathMenu/Menu/VBoxContainer" unique_id=242347713]
+[node name="Button" type="Button" parent="UI/DeathMenu/VBoxContainer" unique_id=272982508]
 layout_mode = 2
 text = "Respawn"
 
-[node name="Button2" type="Button" parent="DeathMenu/Menu/VBoxContainer" unique_id=1116868458]
+[node name="Button2" type="Button" parent="UI/DeathMenu/VBoxContainer" unique_id=2087978790]
 layout_mode = 2
 text = "Main Menu"
 
-[connection signal="pressed" from="DeathMenu/Menu/VBoxContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="DeathMenu/Menu/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[node name="UpgradeMenu" parent="UI" unique_id=584972358 instance=ExtResource("15_ve786")]
+offset_left = 245.0
+offset_top = 51.0
+offset_right = 245.0
+offset_bottom = 51.0

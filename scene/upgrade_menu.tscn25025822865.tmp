@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dlh67juii14cb"]
+
+[ext_resource type="Script" uid="uid://bfopeq0pvbobr" path="res://script/Upgrade.gd" id="1_uhuil"]
+
+[node name="UpgradeMenu" type="CanvasLayer" unique_id=584972358]
+
+[node name="Control" type="Control" parent="." unique_id=594806189]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uhuil")
+
+[node name="CenterContainer" type="CenterContainer" parent="Control" unique_id=842674189]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/CenterContainer" unique_id=90922346]
+layout_mode = 2
+
+[node name="Upgrade1" type="Button" parent="Control/CenterContainer/HBoxContainer" unique_id=1001100745]
+custom_minimum_size = Vector2(200, 350)
+layout_mode = 2
+
+[node name="Upgrade2" type="Button" parent="Control/CenterContainer/HBoxContainer" unique_id=52306442]
+custom_minimum_size = Vector2(200, 350)
+layout_mode = 2
+
+[node name="Upgrade3" type="Button" parent="Control/CenterContainer/HBoxContainer" unique_id=404698866]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
