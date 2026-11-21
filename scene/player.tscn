@@ -123,6 +123,7 @@ offset_bottom = -16.0
 offset_transform_enabled = true
 offset_transform_scale = Vector2(0.5, 0.5)
 max_value = 50.0
+step = 0.0
 value = 50.0
 texture_under = ExtResource("3_ct4mp")
 texture_progress = ExtResource("4_s4jxa")
