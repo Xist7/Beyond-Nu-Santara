@@ -24,12 +24,15 @@ layout_mode = 2
 
 [node name="Upgrade1" type="Button" parent="CenterContainer/HBoxContainer" unique_id=1655811621]
 custom_minimum_size = Vector2(200, 350)
+custom_maximum_size = Vector2(200, 350)
 layout_mode = 2
 
 [node name="Upgrade2" type="Button" parent="CenterContainer/HBoxContainer" unique_id=2074893311]
 custom_minimum_size = Vector2(200, 350)
+custom_maximum_size = Vector2(200, 350)
 layout_mode = 2
 
 [node name="Upgrade3" type="Button" parent="CenterContainer/HBoxContainer" unique_id=371371101]
 custom_minimum_size = Vector2(200, 350)
+custom_maximum_size = Vector2(200, 350)
 layout_mode = 2
