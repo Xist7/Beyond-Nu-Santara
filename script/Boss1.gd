@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 @export var move_speed: float = 120.0
 @export var move_distance: float = 120.0
-@export var Max_HP_boss: int = 20
+@export var Max_HP_boss: int = 100
 @export var damage: int = 20
 @export var jump_force: float = 350.0
 @export var charge_speed: float = 350.0

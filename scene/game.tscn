@@ -960,3 +960,6 @@ offset_left = 245.0
 offset_top = 51.0
 offset_right = 245.0
 offset_bottom = 51.0
+
+[connection signal="pressed" from="UI/DeathMenu/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="UI/DeathMenu/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
