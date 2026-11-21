@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var SPEED = 160.0
-var JUMP_VELOCITY = -400.0
+var JUMP_VELOCITY = -360.0
 
 @export var MAX_HP_PLAYER: int = 50
 
@@ -17,6 +17,9 @@ var is_knockedback : bool = false
 var Projectile_Scene_p = preload("res://scene/p_projectile.tscn")
 var Shoot_Cooldown = 0.7
 var Projectile_Damage = 10
+var MAX_JUMPS = 2
+var jump_count: int = 0
+var DOUBLE_JUMP_MULTIPLIER = 0.8
 
 const KNOCKBACK_FORCE = Vector2(250, -200)
 const BODY_CENTER = Vector2(0, -5)
@@ -36,8 +39,15 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	if Input.is_action_just_pressed("jump") and is_on_floor() and not is_knockedback:
-		velocity.y = JUMP_VELOCITY
+	if is_on_floor():
+		jump_count = 0
+
+	if Input.is_action_just_pressed("jump") and jump_count < MAX_JUMPS and not is_knockedback:
+		if jump_count == 0:
+			velocity.y = JUMP_VELOCITY
+		else:
+			velocity.y = JUMP_VELOCITY * DOUBLE_JUMP_MULTIPLIER
+		jump_count += 1
 
 	if not is_knockedback:
 		var left := Input.is_action_pressed("move_left")
@@ -122,7 +132,7 @@ func shoot() -> void:
 	can_shoot = false
 
 	var origin := shoot_point.global_position
-	var shoot_direction := (get_global_mouse_position() - origin).normalized()
+	var shoot_direction := (get_global_mouse_position() - (global_position + BODY_CENTER)).normalized()
 
 	if shoot_direction.x != 0:
 		last_direction = sign(shoot_direction.x)

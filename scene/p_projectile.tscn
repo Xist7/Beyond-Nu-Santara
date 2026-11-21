@@ -29,16 +29,13 @@ radius = 6.0827627
 script = ExtResource("1_0r6x4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=4776185]
-position = Vector2(25, 15)
 sprite_frames = SubResource("SpriteFrames_wp5od")
 frame_progress = 0.82835674
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1153131364]
-position = Vector2(28, 15)
 shape = SubResource("CircleShape2D_wp5od")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1924417272]
-position = Vector2(26, 15)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
