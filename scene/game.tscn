@@ -901,7 +901,11 @@ position = Vector2(268, 151)
 stream = ExtResource("7_qpk70")
 autoplay = true
 
+<<<<<<< Updated upstream
 [node name="UI" type="CanvasLayer" parent="." unique_id=686404743]
+=======
+[node name="DeathMenu" type="CanvasLayer" parent="." unique_id=416095937]
+>>>>>>> Stashed changes
 
 [node name="DeathMenu" type="Control" parent="UI" unique_id=1201827957]
 layout_mode = 3
