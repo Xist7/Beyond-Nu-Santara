@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://chv7wxwfou28h" path="res://asset/sprites/Boss/Dragon/dragon-idle2.png" id="1_g7ynt"]
 [ext_resource type="Texture2D" uid="uid://ctwsrh4jdmbw" path="res://asset/sprites/Boss/Dragon/dragon-idle1.png" id="2_ruly4"]
+[ext_resource type="Texture2D" uid="uid://mifmcpfjsurl" path="res://asset/sprites/HP_Back.png" id="3_ohfaa"]
+[ext_resource type="Texture2D" uid="uid://duobyner18gbp" path="res://asset/sprites/HP_Front.png" id="4_6avfl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ohfaa"]
 atlas = ExtResource("1_g7ynt")
@@ -115,18 +117,39 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g7ynt"]
-radius = 34.0
-height = 140.0
+radius = 50.0
+height = 134.0
 
 [node name="DragonBoss" type="CharacterBody2D" unique_id=1563137642]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2033656489]
 texture_filter = 1
-scale = Vector2(0.7, 0.7)
+position = Vector2(24.050003, 45.599995)
+scale = Vector2(0.9247664, 0.97804874)
 sprite_frames = SubResource("SpriteFrames_wp5od")
 animation = &"Idle"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1235464430]
-position = Vector2(15, 5)
+position = Vector2(41, 54)
 shape = SubResource("CapsuleShape2D_g7ynt")
+
+[node name="BeamOrigin" type="Marker2D" parent="." unique_id=111150266]
+position = Vector2(134, 0)
+
+[node name="BeamOrigin2" type="Marker2D" parent="." unique_id=173522344]
+position = Vector2(134, 50)
+
+[node name="BeamOrigin3" type="Marker2D" parent="." unique_id=980090078]
+position = Vector2(134, 100)
+
+[node name="Boss2HP" type="TextureProgressBar" parent="." unique_id=647185553]
+offset_left = -15.0
+offset_top = -121.0
+offset_right = 113.0
+offset_bottom = 7.0
+value = 100.0
+texture_under = ExtResource("3_ohfaa")
+texture_progress = ExtResource("4_6avfl")
+
+[node name="ChargeSphere" type="AnimatedSprite2D" parent="." unique_id=1801214970]

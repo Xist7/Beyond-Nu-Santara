@@ -28,7 +28,8 @@ var upgrades = [
 		"id": "heal",
 		"name": "Healing",
 		"description": "Memulihkan 30 HP"
-	},{
+	},
+	{
 		"id" : "jump",
 		"name" : "High Jump",
 		"description" : "Jump Height +100"

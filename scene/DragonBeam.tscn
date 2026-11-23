@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://6oaswkrdgjqv"]
+
+[ext_resource type="Script" uid="uid://c6wpktd5rn17w" path="res://script/DragonBeam.gd" id="1_oe8g6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wp5od"]
+
+[node name="DragonBeam" type="Area2D" unique_id=1814498805]
+script = ExtResource("1_oe8g6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1866811105]
+shape = SubResource("RectangleShape2D_wp5od")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=185740192]
+default_color = Color(0.3529412, 0.03137255, 0.5686275, 1)
+antialiased = true

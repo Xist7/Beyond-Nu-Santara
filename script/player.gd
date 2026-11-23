@@ -26,7 +26,6 @@ const BODY_CENTER = Vector2(0, -5)
 const SHOOT_RADIUS = 10
 
 
-
 func _ready() -> void:
 	add_to_group("player")
 	CURRENT_HP_PLAYER = MAX_HP_PLAYER
@@ -106,7 +105,6 @@ func take_damage(amount: int, damage_source_position: Vector2) -> void:
 		die()
 
 func die() -> void:
-	print("You died")
 	set_physics_process(false)
 	get_tree().current_scene.show_death_menu()
 
@@ -115,7 +113,6 @@ func respawn() -> void:
 	hp_bar.value = CURRENT_HP_PLAYER 
 	velocity = Vector2.ZERO
 	global_position = spawn_point
-	print("You Respawn")
 
 	
 func apply_knockback(source_pos: Vector2) -> void:
