@@ -1,41 +1,41 @@
 [gd_scene format=3 uid="uid://c4nsr6bvp0kq0"]
 
 [ext_resource type="Script" uid="uid://c0bbvlqjgoaf2" path="res://script/Boss1.gd" id="1_ilt14"]
-[ext_resource type="Texture2D" uid="uid://bd8u2xo4nrjgn" path="res://asset/sprites/Boss/Blue_Golem/Golem_1_idle.png" id="2_ilt14"]
+[ext_resource type="Texture2D" uid="uid://cj7q7w6gloe60" path="res://asset/sprites/Boss/alifmagoto/Alif Magoto-idle-v1.png" id="2_ilt14"]
 [ext_resource type="Texture2D" uid="uid://mifmcpfjsurl" path="res://asset/sprites/HP_Back.png" id="2_yu5gy"]
 [ext_resource type="Texture2D" uid="uid://duobyner18gbp" path="res://asset/sprites/HP_Front.png" id="3_ilt14"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4gwtu"]
 atlas = ExtResource("2_ilt14")
-region = Rect2(0, 0, 90, 64)
+region = Rect2(0, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c3hig"]
 atlas = ExtResource("2_ilt14")
-region = Rect2(90, 0, 90, 64)
+region = Rect2(512, 0, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_24ub2"]
 atlas = ExtResource("2_ilt14")
-region = Rect2(180, 0, 90, 64)
+region = Rect2(0, 256, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rnobu"]
 atlas = ExtResource("2_ilt14")
-region = Rect2(270, 0, 90, 64)
+region = Rect2(512, 256, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jjvyn"]
 atlas = ExtResource("2_ilt14")
-region = Rect2(360, 0, 90, 64)
+region = Rect2(0, 512, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_68w4g"]
 atlas = ExtResource("2_ilt14")
-region = Rect2(450, 0, 90, 64)
+region = Rect2(512, 512, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u63wb"]
 atlas = ExtResource("2_ilt14")
-region = Rect2(540, 0, 90, 64)
+region = Rect2(0, 768, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kxpsi"]
 atlas = ExtResource("2_ilt14")
-region = Rect2(630, 0, 90, 64)
+region = Rect2(512, 768, 256, 256)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k56px"]
 animations = [{
@@ -79,22 +79,22 @@ radius = 17.0
 script = ExtResource("1_ilt14")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1760959761]
-position = Vector2(107.00001, 28.75)
-scale = Vector2(1.2111111, 1.1171875)
+position = Vector2(107, 47.999996)
+scale = Vector2(0.400434, 0.3693797)
 sprite_frames = SubResource("SpriteFrames_k56px")
 animation = &"Idle"
 autoplay = "Idle"
-frame_progress = 0.729979
+frame_progress = 0.50857645
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1880775619]
 position = Vector2(107, 48)
 shape = SubResource("CircleShape2D_vkdpk")
 
 [node name="Boss1HP" type="TextureProgressBar" parent="." unique_id=1952307738]
-offset_left = -64.0
-offset_top = -321.0
-offset_right = 271.0
-offset_bottom = 424.0
+offset_left = -41.0
+offset_top = -317.0
+offset_right = 294.0
+offset_bottom = 428.0
 offset_transform_enabled = true
 offset_transform_scale = Vector2(0.2, 0.2)
 value = 100.0
